@@ -36,7 +36,7 @@ class plgContentInfinite_Scroll extends JPlugin
                     nextSelector: '" . $params->get('next_selector') . "',
                     itemSelector: '" . $params->get('item_selector') . "',
                     contentSelector: '" . $params->get('content_selector') . "',
-                    baseURL     : '" . JURI::base() . "'
+                    baseURL     : '" . JURI::base(true) . "'
                 }
                 
             ";
