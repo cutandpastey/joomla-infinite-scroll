@@ -22,11 +22,11 @@
                             <option value="1">Load JQuery from Local Copy</option>
                             <option value="2">Dont Load JQuery</option>
                         </field>
-                        <field name="container_selector" type="text" default="body" label="Container Selector String" description="" />
-                        <field name="nav_selector" type="text" default="nav" label="Nav Selector String" description="" />
-                        <field name="next_selector" type="text" default=".item" label="Next Selector String" description="" />
-                        <field name="item_selector" type="text" default=".item" label="Item Selector String" description="" />
-                        <field name="content_selector" type="text" default=".item" label="Content Selector String" description="" />
+                        <field name="container_selector" type="text" default=".items-leading" label="Container Selector String" description="" />
+                        <field name="nav_selector" type="text" default="div.pagination" label="Nav Selector String" description="" />
+                        <field name="next_selector" type="text" default="[title=Next]" label="Next Selector String" description="" />
+                        <field name="item_selector" type="text" default=".items-leading div" label="Item Selector String" description="" />
+                        <field name="content_selector" type="text" default=".items-leading" label="Content Selector String" description="" />
                     </fieldset>
                 </fields>
 	</config>
