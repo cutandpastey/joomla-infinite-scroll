@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content">
+        <name>infinite_scroll</name>
+        <author>Pastey</author>
+        <creationDate>10-02-12</creationDate>
+        <copyright>ctrlxctrlv</copyright>
+        <license>GNU General Public License</license>
+        <authorEmail>joomla@ctrlxctrlv.co.uk</authorEmail>
+        <authorUrl>http://ctrlxctrlv.co.uk</authorUrl>
+        <version>0.1</version>
+        <description>Simple plugin to include and load jquery infinite scroll</description>
+        <files>
+                <filename plugin="infinite_scroll">infinite_scroll.php</filename>
+                <filename>index.html</filename>
+                <folder>js</folder>
+        </files>
+        <config>
+            <fields name="params">
+                    <fieldset name="basic">
+                        <field name="jquery_loading" type="list" default="0" label="Choose how to load JQuery" description="">
+                            <option value="0">Load JQuery from CDN</option>
+                            <option value="1">Load JQuery from Local Copy</option>
+                            <option value="2">Dont Load JQuery</option>
+                        </field>
+                        <field name="container_selector" type="text" default="body" label="Container Selector String" description="" />
+                        <field name="nav_selector" type="text" default="nav" label="Nav Selector String" description="" />
+                        <field name="next_selector" type="text" default=".item" label="Next Selector String" description="" />
+                        <field name="item_selector" type="text" default=".item" label="Item Selector String" description="" />
+                        <field name="content_selector" type="text" default=".item" label="Content Selector String" description="" />
+                    </fieldset>
+                </fields>
+	</config>
+</extension>
