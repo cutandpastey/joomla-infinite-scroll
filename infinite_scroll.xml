@@ -1,33 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="content">
-        <name>infinite_scroll</name>
-        <author>Pastey</author>
-        <creationDate>10-02-12</creationDate>
-        <copyright>ctrlxctrlv</copyright>
-        <license>GNU General Public License</license>
-        <authorEmail>joomla@ctrlxctrlv.co.uk</authorEmail>
-        <authorUrl>http://ctrlxctrlv.co.uk</authorUrl>
-        <version>0.1</version>
-        <description>Simple plugin to include and load jquery infinite scroll</description>
-        <files>
-                <filename plugin="infinite_scroll">infinite_scroll.php</filename>
-                <filename>index.html</filename>
-                <folder>js</folder>
-        </files>
-        <config>
-            <fields name="params">
-                    <fieldset name="basic">
-                        <field name="jquery_loading" type="list" default="0" label="Choose how to load JQuery" description="">
-                            <option value="0">Load JQuery from CDN</option>
-                            <option value="1">Load JQuery from Local Copy</option>
-                            <option value="2">Dont Load JQuery</option>
-                        </field>
-                        <field name="container_selector" type="text" default=".items-leading" label="Container Selector String" description="" />
-                        <field name="nav_selector" type="text" default="div.pagination" label="Nav Selector String" description="" />
-                        <field name="next_selector" type="text" default="[title=Next]" label="Next Selector String" description="" />
-                        <field name="item_selector" type="text" default=".items-leading div" label="Item Selector String" description="" />
-                        <field name="content_selector" type="text" default=".items-leading" label="Content Selector String" description="" />
-                    </fieldset>
-                </fields>
-	</config>
+    <name>infinite_scroll</name>
+    <author>Pastey</author>
+    <creationDate>10-02-12</creationDate>
+    <copyright>ctrlxctrlv</copyright>
+    <license>GNU General Public License</license>
+    <authorEmail>joomla@ctrlxctrlv.co.uk</authorEmail>
+    <authorUrl>http://ctrlxctrlv.co.uk</authorUrl>
+    <version>0.1</version>
+    <description>
+    <![CDATA[
+        <h2>Infinite scroll plugin for Joomla 2.5</h2>
+        <p>Simple plugin to include and load jquery infinite scroll</p>
+        <p>Implements the <a target="_blank" href="https://github.com/paulirish/infinite-scroll">Infinite Scroll jQuery Plugin</a> for Joomla category blog layout pages.</p>
+        <p>The default values in the selectors settings are based on the Beez2 template so if you are using a different template you will need to adjust the settings accordingly or you can copy the Beez2 template overrides for the category blog layout into your template.</p>
+    ]]>
+    </description>
+    <files>
+        <filename plugin="infinite_scroll">infinite_scroll.php</filename>
+        <filename>index.html</filename>
+        <folder>js</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset
+                name="basic"
+            >
+                <field 
+                    name="categories" 
+                    type="category" 
+                    extension="com_content" 
+                    label="Select categories" 
+                    multiple="true"
+                    description="If no categories are selected and plugin is enabled it will be used on all category blog layout pages otherwise the plugin will only be used for the categories selected"
+                    
+                />
+                <field 
+                    name="loading_msg" 
+                    type="textarea"
+                    label="Loading message" 
+                    description="Message when items are being loaded"
+                    
+                />
+                <field 
+                    name="end_msg" 
+                    type="textarea"
+                    label="End message" 
+                    description="Message when there are no more items to be loaded"
+                    
+                />
+            </fieldset>
+            <fieldset
+                name="selectors"
+                label="Selectors"
+            > 
+                <field
+                    name="container_selector"
+                    required="required"
+                    type="text"
+                    default=".items-leading"
+                    label="Container Selector String"
+                    description=""
+                />
+                <field
+                    name="nav_selector"
+                    required="required"
+                    type="text"
+                    default="div.pagination"
+                    label="Nav Selector String"
+                    description=""
+                />
+                <field
+                    name="next_selector"
+                    required="required"
+                    type="text"
+                    default="[title=Next]"
+                    label="Next Selector String"
+                    description=""
+                />
+                <field
+                    name="item_selector"
+                    required="required"
+                    type="text"
+                    default=".items-leading div"
+                    label="Item Selector String"
+                    description=""
+                />
+                <field
+                    name="content_selector"
+                    required="required"
+                    type="text"
+                    default=".items-leading"
+                    label="Content Selector String"
+                    description=""
+                />
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="jquery_loading" type="list" default="0" label="Choose how to load JQuery" description="">
+                    <option value="0">Load JQuery from CDN</option>
+                    <option value="1">Load JQuery from Local Copy</option>
+                    <option value="2">Dont Load JQuery</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
 </extension>
