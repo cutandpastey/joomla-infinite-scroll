@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="system">
     <name>infinite_scroll</name>
     <author>Pastey</author>
     <creationDate>10-02-12</creationDate>
-    <copyright>ctrlxctrlv</copyright>
+    <copyright>WhiteLabelExtensions</copyright>
     <license>GNU General Public License</license>
-    <authorEmail>joomla@ctrlxctrlv.co.uk</authorEmail>
-    <authorUrl>http://ctrlxctrlv.co.uk</authorUrl>
-    <version>0.1</version>
+    <authorEmail>joomla@whitelabelextensions</authorEmail>
+    <authorUrl>http://whitelabelextensions.com</authorUrl>
+    <version>0.2.0</version>
     <description>
-    <![CDATA[
-        <h2>Infinite scroll plugin for Joomla 2.5</h2>
-        <p>Simple plugin to include and load jquery infinite scroll</p>
-        <p>Implements the <a target="_blank" href="https://github.com/paulirish/infinite-scroll">Infinite Scroll jQuery Plugin</a> for Joomla category blog layout pages.</p>
-        <p>The default values in the selectors settings are based on the Beez2 template so if you are using a different template you will need to adjust the settings accordingly or you can copy the Beez2 template overrides for the category blog layout into your template.</p>
-    ]]>
+        <![CDATA[
+            <h2>Infinite scroll plugin for Joomla 2.5</h2>
+            <p>Simple plugin to include and load jquery infinite scroll (if desired)</p>
+            <p>Implements the <a target="_blank" href="https://github.com/paulirish/infinite-scroll">Infinite Scroll jQuery Plugin</a> for Joomla category blog layout pages.</p>
+            <p>There are preset selector settings for the Beez2 and Beez5 template but if you are using a different template you will need to adjust the settings accordingly or you can copy the Beez2/Beez5 template overrides for the category blog layout into your template.</p>
+        ]]>
     </description>
     <files>
         <filename plugin="infinite_scroll">infinite_scroll.php</filename>
@@ -24,83 +24,57 @@
     <config>
         <fields name="params">
             <fieldset
-                name="basic"
-            >
-                <field 
-                    name="categories" 
-                    type="category" 
-                    extension="com_content" 
-                    label="Select categories" 
-                    multiple="true"
-                    description="If no categories are selected and plugin is enabled it will be used on all category blog layout pages otherwise the plugin will only be used for the categories selected"
-                    
-                />
-                <field 
-                    name="loading_msg" 
-                    type="textarea"
-                    label="Loading message" 
-                    description="Message when items are being loaded"
-                    
-                />
-                <field 
-                    name="end_msg" 
-                    type="textarea"
-                    label="End message" 
-                    description="Message when there are no more items to be loaded"
-                    
-                />
+                    name="texts"
+                    label="Texts"
+                    >
+
+                <field
+                        name="loading_msg"
+                        type="textarea"
+                        label="Loading message"
+                        description="Message when items are being loaded"
+
+                        />
+                <field
+                        name="end_msg"
+                        type="textarea"
+                        label="End message"
+                        description="Message when there are no more items to be loaded"
+
+                        />
             </fieldset>
             <fieldset
-                name="selectors"
-                label="Selectors"
-            > 
+                    name="Settings"
+                    label="Settings"
+                    >
                 <field
-                    name="container_selector"
-                    required="required"
-                    type="text"
-                    default=".items-leading"
-                    label="Container Selector String"
-                    description=""
-                />
-                <field
-                    name="nav_selector"
-                    required="required"
-                    type="text"
-                    default="div.pagination"
-                    label="Nav Selector String"
-                    description=""
-                />
-                <field
-                    name="next_selector"
-                    required="required"
-                    type="text"
-                    default="[title=Next]"
-                    label="Next Selector String"
-                    description=""
-                />
-                <field
-                    name="item_selector"
-                    required="required"
-                    type="text"
-                    default=".items-leading div"
-                    label="Item Selector String"
-                    description=""
-                />
-                <field
-                    name="content_selector"
-                    required="required"
-                    type="text"
-                    default=".items-leading"
-                    label="Content Selector String"
-                    description=""
-                />
-            </fieldset>
-            <fieldset name="advanced">
+                        name="categories"
+                        type="category"
+                        extension="com_content"
+                        label="Select categories"
+                        multiple="true"
+                        description="If no categories are selected and plugin is enabled it will be used on all category blog layout pages otherwise the plugin will only be used for the categories selected"
+
+                        />
                 <field name="jquery_loading" type="list" default="0" label="Choose how to load JQuery" description="">
                     <option value="0">Load JQuery from CDN</option>
                     <option value="1">Load JQuery from Local Copy</option>
-                    <option value="2">Dont Load JQuery</option>
+                    <option value="2">Do not Load JQuery</option>
                 </field>
+                <field
+                        name="preset"
+                        type="list"
+                        default="custom"
+                        label="Template Presets"
+                        >
+                    <option value="Beez5">Beez5</option>
+                    <option value="Beez2">Beez2</option>
+                    <option value="custom">Custom</option>
+                </field>
+                <field type="spacer" name="custom" label="&lt;strong&gt;Custom template settings&lt;/strong&gt;" />
+                <field name="container_selector" type="text" default="body" label="Container Selector String" description="" />
+                <field name="item_selector" type="text" default=".item" label="Item Selector String" description="" />
+                <field name="content_selector" type="text" default=".item" label="Content Selector String" description="" />
             </fieldset>
         </fields>
     </config>
