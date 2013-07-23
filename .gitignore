@@ -165,3 +165,6 @@ pip-log.txt
 
 # Netbeans project
 /nbproject/
+
+#jetbrains
+.idea/
